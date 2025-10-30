@@ -77,5 +77,3 @@ while True:
             break
         case _:
             print('You chose an invalid option')
-
-
