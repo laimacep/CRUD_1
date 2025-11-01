@@ -19,7 +19,7 @@ def selection():
 
 def view_authors(authors):
     for author in authors:
-        print(f'{author['id']}. {author['name']} {author['surname']}')
+        print(f'{author['author_id']}. {author['name']} {author['surname']}')
 
 def view_books(books):
     for book in books:
@@ -42,7 +42,7 @@ def add_author(id_counter,authors):
     print('Write the surname of the new author')
     surname = input()
     id_counter += 1
-    new_author = {'id': id_counter, 'name': name, 'surname': surname}
+    new_author = {'author_id': id_counter, 'name': name, 'surname': surname}
     authors.append(new_author)
     return id_counter
 
@@ -65,7 +65,7 @@ def edit_author(authors):
     allowed = r"^[\d]+$"
     if re.match(allowed, edit_author_id):
         for i, author in enumerate(authors):
-            if str(author['id']) == edit_author_id:
+            if str(author['author_id']) == edit_author_id:
                 print('Write new author name')
                 authors[i]['name'] = input()
                 print('Write new author surname')
@@ -101,13 +101,13 @@ def delete_author(authors):
     allowed = r"^[\d]+$"
     if re.match(allowed, del_author_id):
         for i, author in enumerate(authors):
-            if str(author['id']) == del_author_id:
+            if str(author['author_id']) == del_author_id:
                 print(f'Are you sure you want to delete this author?')
                 print('Type 0 to confirm delete and 1 to exit')
                 confirmation = input()
                 if confirmation == '0':
                     for author in authors:
-                        if str(author['id']) == del_author_id:
+                        if str(author['author_id']) == del_author_id:
                             authors.remove(author)
                             break
                 if confirmation == '1':
