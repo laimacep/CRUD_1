@@ -1,7 +1,10 @@
-from list_CRUD import *
+from file_CRUD import *
 import operator
-id_counter = 3
-book_id_counter = 6
+
+authors = load_authors()
+books = load_books()
+id_counter = get_a_id(authors)
+# book_id_counter = get_b_id(books)
 
 while True:
     view_options()
@@ -20,7 +23,7 @@ while True:
         case '2':
             choice = selection()
             if choice == 'authors':
-                id_counter = add_author(id_counter, authors)
+                id_counter = add_author(get_a_id(), authors)
             elif choice == 'books':
                 book_id_counter, id_counter = add_book(book_id_counter,id_counter, authors, books)
         case '3':
@@ -50,4 +53,3 @@ while True:
             break
         case _:
             print('Ooops, a typo. Try again!')
-

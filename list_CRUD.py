@@ -1,6 +1,24 @@
 import re
+from demo_data import load_authors
+from demo_data import load_books
 
-from demo_data import *
+def get_a_id(authors=None):
+    if authors is None:
+        authors = []
+    max_id = 0
+    for a in authors:
+        if int(a['author_id']) > max_id:
+            max_id = int(a['author_id'])
+    return max_id
+
+def get_b_id(books=None):
+    if books is None:
+        books = []
+    max_id = 0
+    for b in books:
+        if int(b['book_id']) > max_id:
+            max_id = int(b['book_id'])
+    return max_id
 
 def view_options():
     print(f'Choose what you want to do:\n 1. View...\n 2. Add... \n 3. Edit... \n 4. Delete...\n 5. Sort...\n 6. Exit page')
@@ -48,6 +66,7 @@ def add_author(id_counter,authors):
         id_counter += 1
         new_author = {'author_id': id_counter, 'name': name, 'surname': surname}
         authors.append(new_author)
+        print(f'New author {new_author['name']} {new_author['surname']} added')
     return id_counter
 
 def add_book(book_id_counter,id_counter, authors, books):
@@ -87,8 +106,6 @@ def edit_author(authors):
                 authors[i]['name'] = input()
                 print('Write new author surname')
                 authors[i]['surname'] = input()
-            else:
-                print('Hmmm.. Type the ID of the author!')
     else:
         print('Hmmm.. Type the ID of the author!')
 

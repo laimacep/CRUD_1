@@ -1,4 +1,6 @@
-authors = [{
+def load_authors():
+    return [
+    {
         'author_id' : '1',
         'name' : 'Bubbles',
         'surname' : 'McSnort'
@@ -13,8 +15,9 @@ authors = [{
         'name' : 'Princess',
         'surname' : 'Waffleton'
 }]
-
-books = [{
+def load_books():
+    return[
+    {
         'author_id' : '1',
         'book_id' : '1',
         'title' : 'The Secret Life of Left Socks',
